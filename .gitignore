@@ -1,0 +1,9 @@
+*.dll
+obj/Debug/LocalAudioStreamVolumeHeadless.pdb
+obj/Debug/LocalAudioStreamVolumeHeadless.csproj.FileListAbsolute.txt
+obj/Debug/LocalAudioStreamVolumeHeadless.csproj.CoreCompileInputs.cache
+obj/Debug/LocalAudioStreamVolumeHeadless.csproj.CopyComplete
+obj/Debug/LocalAudioStreamVolumeHeadless.csproj.AssemblyReference.cache
+obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+obj/Debug/.NETFramework,Version=v4.7.2.AssemblyAttributes.cs
+bin/Debug/LocalAudioStreamVolumeHeadless.pdb
