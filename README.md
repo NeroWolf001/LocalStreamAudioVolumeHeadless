@@ -2,7 +2,7 @@
 This neos headless mod 
 [NeosModLoader](https://github.com/zkxs/NeosModLoader) mod for [Neos](https://neos.com/) headless that sets the default volume of user audio streams to 0 and equips them with local audio.
 
-This mod is intended for headless use but will also work in worlds you host! NML config option avalible.
+This mod is intended for headless use but will also work in worlds you host! NML config option available.
 
 # Installation
 1. Install [NeosModLoader](https://github.com/zkxs/NeosModLoader).
