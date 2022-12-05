@@ -9,7 +9,7 @@ namespace LocalAudioStreamVolumeHeadless
     {
         public override string Name => "LocalAudioStreamVolumeHeadless";
         public override string Author => "NeroWolf & LeCloutPanda";
-        public override string Version => "1.0.0";
+        public override string Version => "1.0.1";
 
         public static ModConfiguration config;
 
@@ -43,20 +43,23 @@ namespace LocalAudioStreamVolumeHeadless
 
             if (arg2.GetType() == typeof(UserAudioStream<StereoSample>))
             {
-                    AudioOutput audioOutput = arg1.GetComponent<AudioOutput>();
-                    if (audioOutput == null) return;
+                AudioOutput audioOutput = arg1.GetComponent<AudioOutput>();
+                if (audioOutput == null) return;
 
-                    ValueUserOverride<float> userOverride = audioOutput.Volume.OverrideForUser<float>(arg1.World.HostUser, 0);
-                    userOverride.CreateOverrideOnWrite.Value = true;
-                    userOverride.Default.Value = 0;
+                ValueUserOverride<float> userOverride = audioOutput.Volume.OverrideForUser<float>(arg1.World.HostUser, 0);
+                userOverride.CreateOverrideOnWrite.Value = true;
+                userOverride.Default.Value = 0;
 
-                    Slot Handle = arg1.FindChild(ch => ch.Name.Equals("Handle"), 1);
-                    if (Handle.FindChild(ch => ch.Name.Equals("Local Text"), 1) != null) return;
+                arg1.RunInUpdates(3, () =>
+                {
+                        Slot Handle = arg1.FindChild(ch => ch.Name.Equals("Handle"), 1);
+                        if (Handle.FindChild(ch => ch.Name.Equals("Local Text"), 1) != null) return;
 
-                    TextRenderer text = Handle.AddSlot("Local Text").AttachComponent<TextRenderer>();
-                    text.Text.Value = "Local Audio";
-                    text.Slot.Scale_Field.Value = new BaseX.float3(0.3f, 0.3f, 0.3f);
-                    text.Slot.Position_Field.Value = new BaseX.float3(0f, 0f, -0.0075f);
+                        TextRenderer text = Handle.AddSlot("Local Text").AttachComponent<TextRenderer>();
+                        text.Text.Value = "Local Audio";
+                        text.Slot.Scale_Field.Value = new BaseX.float3(0.3f, 0.3f, 0.3f);
+                        text.Slot.Position_Field.Value = new BaseX.float3(0f, 0f, -0.0075f);
+               });
             }
         }
     }
