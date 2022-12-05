@@ -43,8 +43,6 @@ namespace LocalAudioStreamVolumeHeadless
 
             if (arg2.GetType() == typeof(UserAudioStream<StereoSample>))
             {
-                arg1.RunInUpdates(3, () =>
-                {
                     AudioOutput audioOutput = arg1.GetComponent<AudioOutput>();
                     if (audioOutput == null) return;
 
@@ -59,7 +57,6 @@ namespace LocalAudioStreamVolumeHeadless
                     text.Text.Value = "Local Audio";
                     text.Slot.Scale_Field.Value = new BaseX.float3(0.3f, 0.3f, 0.3f);
                     text.Slot.Position_Field.Value = new BaseX.float3(0f, 0f, -0.0075f);
-                });
             }
         }
     }
